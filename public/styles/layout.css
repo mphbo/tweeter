@@ -24,7 +24,21 @@ body {
 main {
   width: 90%;
   margin: 0 auto;
+  /* margin-top: -200px; */
   background-color: #f4f1ec;
+  z-index: -1;
+}
+
+#scrollToTop i {
+  position: fixed;
+  z-index: 5;
+  bottom: 1em;
+  right: 1em;
+  color: rgb(170, 170, 170);
+}
+
+#scrollToTop i:hover {
+  color: rgb(61, 58, 255);
 }
 
 

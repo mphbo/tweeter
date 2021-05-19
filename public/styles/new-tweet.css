@@ -29,3 +29,16 @@ form textarea {
   outline: none;
   margin-bottom: 0.5em;
 }
+
+
+/* Rules below are for errors, too many characters or no characters */
+
+#error {
+  font-size: 0.5em;
+  color: red;
+}
+
+.error {
+  background-color: rgb(255, 149, 149);
+  
+}
