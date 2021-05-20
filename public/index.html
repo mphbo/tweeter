@@ -58,12 +58,13 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
+    <nav id="navBar">
       <h1>Tweeter</h1>
-      <div class="flex">
-        <p><strong>Write</strong> a new treet</p><i id="arrow" class="fas fa-angle-double-down"></i>
+      <div class="flex" id="writeNew">
+        <p id="writeNew"><strong>Write</strong> a new treet</p><i id="arrow" class="fas fa-angle-double-down"></i>
       </div>
     </nav>
+    <h1 id="small">Tweeter</h1>
     <header class="iconTop">
       <div>
           <img src="/images/profile-hex.png"> 
@@ -78,7 +79,7 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <!-- <h2>Compose Tweet</h2> -->
         <form id="publish" class="publish">
           <!-- <label for="tweet-text">(optional)</label> -->
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>

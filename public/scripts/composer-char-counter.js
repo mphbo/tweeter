@@ -25,6 +25,7 @@ $(document).ready(() => {
     $('body').append(`
       <a href="" id="scrollToTop"><i class="fas fa-chevron-up"></i></a>
     `)
+    this.off();
   })
 
   $('#scrollToTop i').on('click', function() {

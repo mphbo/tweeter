@@ -23,14 +23,14 @@ body {
 
 main {
   width: 90%;
-  margin: 0 auto;
-  /* margin-top: -200px; */
+  margin: 50px auto 0 auto;
   background-color: #f4f1ec;
   z-index: -1;
 }
 
-#scrollToTop i {
+#scrollToTop {
   position: fixed;
+  width: 0;
   z-index: 5;
   bottom: 1em;
   right: 1em;
@@ -41,7 +41,51 @@ main {
   color: rgb(61, 58, 255);
 }
 
+#small {
+  display: none;
+}
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+
+
+ @media (min-width: 1024px) {
+  body {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }   
+  header.iconTop {
+     width: 40%;
+     margin-top: 200px;
+     margin: 200px 0 0 0;
+   }
+
+  main.container {
+     width: 40%;
+     margin: 200px 0 0 0;
+     z-index: 10;
+   }
+ }
+
+ @media (max-width: 768px) {
+   main.container {
+     width: 100%;
+   }
+   div#writeNew {
+     display: none;
+   }
+   nav#navBar {
+     background-color: #ff7700;
+     z-index: -1;
+   }
+   header.iconTop {
+     margin-top: 0;
+   }
+   #small {
+     display:unset;
+     position: absolute;
+     margin-left: 2%;
+     font-family: 'Bungee', cursive;
+     z-index: 2;
+     font-size: 1.5em;
+   }
+ }

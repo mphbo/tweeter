@@ -1,11 +1,13 @@
 .iconTop {
   height: 400px;
   width: 100%;
+  color: rgb(78, 78, 78);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 325px 0px 200px 0px;
+  margin-top: 50px;
   background-color: #ff7700;
   background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
 }
