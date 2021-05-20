@@ -43,16 +43,12 @@ const renderTweets = tweets => {
 
 
 
-$.ajax('/tweets', {method: 'GET'})
-      .then(function (tweets) {
-        // console.log('Success: ', tweets)
-      renderTweets(tweets);
-      })
 
 
+$('document').ready(function () {
+  
 
-
-$('document').ready(() => {
+  //Initial tweet load
   const loadTweets = function() {
     $.ajax('/tweets', {method: 'GET'})
     .then(function(tweets) {
@@ -61,20 +57,19 @@ $('document').ready(() => {
     })
   }
   loadTweets();
+
   
-})
-
-
-$('document').ready(function () {
   let isError = false;
   
+
+  //form listener that throws errors to user if characters exceed 140 or text area is empty
   $("form").submit(function (event) {
     event.preventDefault();
     
     let formData = {
       text: $('#tweet-text').val()
     };
-    // console.log(formData);
+
     if (formData.text.length > 140) {
       $('#tweet-text').addClass('error')
       if (!isError) {
@@ -94,17 +89,10 @@ $('document').ready(function () {
       }
     }
     if (formData.text.length > 0 && formData.text.length <= 140) {
-      // console.log('hey')
       $('#error').remove();
       $('#tweet-text').removeClass('error')
-      const loadTweets = function() {
-        $.ajax('/tweets', {method: 'GET'})
-        .then(function(tweets) {
-          // console.log(data);
-          renderTweets(tweets);
-        })
-      }
-      console.log(formData);
+
+      //ajax post sends new tweet to backend
       $.ajax({
        type: "POST",
        url: "/tweets",
@@ -112,7 +100,8 @@ $('document').ready(function () {
       //  encode: true,
       })
       .done((event) => {
-        console.log('Event:',event)
+
+        //after post is finsished tweets are removed from page and then replaced with all of them plus the new content (tweet) prepended to the page.
         $('.tweets-container').html('');
         $.get('/tweets', function(theData, status) {
           renderTweets(theData);
