@@ -1,0 +1,35 @@
+$blue: #4056A1;
+$white: #ffffff;
+$orange: rgb(255, 102, 0);
+
+nav {
+  background-color: $blue;
+  color: $white;
+  height: 120px;
+  padding: 0 1.5em;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 11;
+
+}
+nav {
+  h1 {
+    font-family: 'Bungee', cursive;
+  }
+  
+  .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* color: red; */
+  }
+} 
+
+.fa-angle-double-down:before {
+  content: "\f103";
+  color: $orange;
+}

@@ -1,11 +1,13 @@
-// const renderTweets = require('./client')
 
+//function to escape cross site scripting
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
+
+//create dynamic tweets as html with template literals
 const createTweetElement = tweet => {
   const name = tweet.user.name;
   const handle = tweet.user.handle;
@@ -34,6 +36,8 @@ const createTweetElement = tweet => {
   return $tweet;
 }
 
+
+//loop through all tweets from backend and apply the above function to each and then render them on index
 const renderTweets = tweets => {
   const existingTweets = $('.tweets-container')
   for (const tweet of tweets) {
@@ -44,10 +48,8 @@ const renderTweets = tweets => {
 
 
 
-
+//where function calls take place and the form submit listener/ajax call lives
 $('document').ready(function () {
-  
-
   //Initial tweet load
   const loadTweets = function() {
     $.ajax('/tweets', {method: 'GET'})

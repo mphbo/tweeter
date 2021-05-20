@@ -60,11 +60,11 @@ $('document').ready(function () {
   }
   loadTweets();
 
-  
-  let isError = false;
-  
 
   //form listener that throws errors to user if characters exceed 140 or text area is empty
+  
+  let isTooLong = false;
+  let isTooShort = false;
   $("form").submit(function (event) {
     event.preventDefault();
     
@@ -72,27 +72,30 @@ $('document').ready(function () {
       text: $('#tweet-text').val()
     };
 
-    if (formData.text.length > 140) {
+      
+
+    if (formData.text.length > 140 && !isTooLong) {
       $('#tweet-text').addClass('error')
-      if (!isError) {
-        $('#tweetButton').after(`<p id="error">Too many characters!<i class="fas fa-level-up-alt"></i></p>`)
-        isError = true;
-      } else {
-        isError = false;
-      }
+      $('#error').remove();
+      $('#tweetButton').after(`<p id="error">Too many characters!<i class="fas fa-level-up-alt"></i></p>`)
+      
+      isTooLong = true;
+      isTooShort = false;
     }
-    if (formData.text.length === 0) {
+    if (formData.text.length === 0 && !isTooShort) {
       $('#tweet-text').addClass('error');
-      if (!isError) {
-        $('#tweetButton').after(`<p id="error">Please add characters!<i class="fas fa-level-up-alt"></i></p>`)
-        isError = true;
-      } else {
-        isError = false;
-      }
+      $('#error').remove();
+      $('#tweetButton').after(`<p id="error">Please add characters!<i class="fas fa-level-up-alt"></i></p>`)
+      
+      isTooShort = true;
+      isTooLong = false;
     }
     if (formData.text.length > 0 && formData.text.length <= 140) {
       $('#error').remove();
       $('#tweet-text').removeClass('error')
+      
+      isTooLong = false;
+      isTooShort = false;
 
       //ajax post sends new tweet to backend
       $.ajax({
@@ -103,10 +106,13 @@ $('document').ready(function () {
       })
       .done((event) => {
 
-        //after post is finsished tweets are removed from page and then replaced with all of them plus the new content (tweet) prepended to the page.
-        $('.tweets-container').html('');
+        //after post is finsished a get request retu 
+        // $('.tweets-container').html('');
         $.get('/tweets', function(theData, status) {
-          renderTweets(theData);
+          $('.tweets-container').prepend(createTweetElement(theData[theData.length - 1]));
+          $('#publish')[0].reset();
+          $('#counter').text(140);
+
       })
      })
      .fail((err) => {

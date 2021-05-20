@@ -3,10 +3,14 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+
+$headFont: 'Bungee', cursive;
+$regFont: 'Source Sans Pro', sans-serif;
+
+
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -14,14 +18,15 @@ html {
 /*
  * Global layout stuff
  */
+
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: $regFont;
 }
 
-main.container {
+main {
   width: 90%;
   margin: 50px auto 0 auto;
   background-color: #f4f1ec;
@@ -34,55 +39,57 @@ main.container {
   z-index: 5;
   bottom: 1em;
   right: 1em;
-  color: #aaaaaa;
+  color: rgb(170, 170, 170);
 }
 
 #scrollToTop i:hover {
-  color: #3d3aff;
+  color: rgb(61, 58, 255);
 }
 
 #small {
   display: none;
 }
 
-@media (min-width: 1024px) {
+
+
+ @media (min-width: 1024px) {
   body {
     width: 100%;
     display: flex;
     justify-content: space-around;
-  }
-
+  }   
   header.iconTop {
-    width: 40%;
-    margin-top: 200px;
-    margin: 200px 0 0 0;
-  }
+     width: 40%;
+     margin-top: 200px;
+     margin: 200px 0 0 0;
+   }
 
   main.container {
-    width: 40%;
-    margin: 155px 0 0 0;
-    z-index: 10;
-  }
-}
-@media (max-width: 768px) {
-  main.container {
-    width: 100%;
-  }
+     width: 40%;
+     margin: 200px 0 0 0;
+     z-index: 10;
+   }
+ }
 
-  nav#navBar {
-    display: none;
-  }
-
-  header.iconTop {
-    margin-top: 0;
-  }
-
-  #small {
-    display: unset;
-    position: absolute;
-    margin-left: 2%;
-    font-family: "Bungee", cursive;
-    z-index: 2;
-    font-size: 1.5em;
-  }
-}
+ @media (max-width: 768px) {
+   main.container {
+     width: 100%;
+   }
+   div#writeNew {
+     display: none;
+   }
+   nav#navBar {
+     display: none;
+   }
+   header.iconTop {
+     margin-top: 0;
+   }
+   #small {
+     display:unset;
+     position: absolute;
+     margin-left: 2%;
+     font-family: $headFont;
+     z-index: 2;
+     font-size: 1.5em;
+   }
+ }

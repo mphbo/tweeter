@@ -4,8 +4,6 @@ article.tweet {
   border: #545149 4px solid;
   display: flex;
   flex-direction: column;
-  word-break: break-word;
-  /* overflow: scroll; */
 }
 
 article.tweet:hover {
@@ -34,7 +32,7 @@ article.tweet header p.name {
 article.tweet header p.username {
   font-size: 1em;
   font-weight: 600;
-  color: #ceccca;
+  color: #ceccca
 }
 
 article.tweet header div {
@@ -78,3 +76,4 @@ article.tweet footer div i {
 article.tweet footer div i:hover {
   color: orange;
 }
+
