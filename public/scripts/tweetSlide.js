@@ -1,4 +1,4 @@
-
+//Stretch work to show/hide the new tweet box when button is clicked depending on screen size.
 
 let newTweetDisplay = $('.new-tweet');
 $('document').ready(() => {

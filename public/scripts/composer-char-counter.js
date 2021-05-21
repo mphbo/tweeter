@@ -1,4 +1,4 @@
-// console.log('hello file');
+//logic to dynamically change the character counter underneath the form to make a new tweet. Changes red when there are too many characters.
 
 $(document).ready(() => {
   // console.log('taterbeans');
