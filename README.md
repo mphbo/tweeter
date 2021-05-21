@@ -5,7 +5,9 @@ Tweeter is a simple, single-page Twitter clone. This project was a great opportu
 ## Screenshots
 
 !["Screenshot of Tweeter at desktop size"](https://raw.githubusercontent.com/mphbo/tweeter/master/docs/desktop.png)
-!["Screenshot of Tweeter at tables size"](https://raw.githubusercontent.com/mphbo/tweeter/master/docs/tablet.png)
+
+!["Screenshot of Tweeter at tablet size"](https://raw.githubusercontent.com/mphbo/tweeter/master/docs/tablet.png)
+
 !["Screenshot of Tweeter at mobile size"](https://raw.githubusercontent.com/mphbo/tweeter/master/docs/mobile.png)
 
 ## Getting Started
