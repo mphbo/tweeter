@@ -1,6 +1,6 @@
 
 //function to escape cross site scripting
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -34,30 +34,29 @@ const createTweetElement = tweet => {
   </article>
   `;
   return $tweet;
-}
+};
 
 
 //loop through all tweets from backend and apply the above function to each and then render them on index
 const renderTweets = tweets => {
-  const existingTweets = $('.tweets-container')
+  const existingTweets = $('.tweets-container');
   for (const tweet of tweets) {
     existingTweets.prepend(createTweetElement(tweet));
   }
-}
+};
 
 
 
 
 //where function calls take place and the form submit listener/ajax call lives
-$('document').ready(function () {
+$('document').ready(function() {
   //Initial tweet load
   const loadTweets = function() {
     $.ajax('/tweets', {method: 'GET'})
-    .then(function(tweets) {
-      // console.log(data);
-      renderTweets(tweets);
-    })
-  }
+      .then(function(tweets) {
+        renderTweets(tweets);
+      });
+  };
   loadTweets();
 
 
@@ -65,7 +64,7 @@ $('document').ready(function () {
   
   let isTooLong = false;
   let isTooShort = false;
-  $("form").submit(function (event) {
+  $("form").submit(function(event) {
     event.preventDefault();
     
     let formData = {
@@ -75,9 +74,9 @@ $('document').ready(function () {
       
 
     if (formData.text.length > 140 && !isTooLong) {
-      $('#tweet-text').addClass('error')
+      $('#tweet-text').addClass('error');
       $('#error').remove();
-      $('#tweetButton').after(`<p id="error">Too many characters!<i class="fas fa-level-up-alt"></i></p>`)
+      $('#tweetButton').after(`<p id="error">Too many characters!<i class="fas fa-level-up-alt"></i></p>`);
       
       isTooLong = true;
       isTooShort = false;
@@ -85,39 +84,37 @@ $('document').ready(function () {
     if (formData.text.length === 0 && !isTooShort) {
       $('#tweet-text').addClass('error');
       $('#error').remove();
-      $('#tweetButton').after(`<p id="error">Please add characters!<i class="fas fa-level-up-alt"></i></p>`)
+      $('#tweetButton').after(`<p id="error">Please add characters!<i class="fas fa-level-up-alt"></i></p>`);
       
       isTooShort = true;
       isTooLong = false;
     }
     if (formData.text.length > 0 && formData.text.length <= 140) {
       $('#error').remove();
-      $('#tweet-text').removeClass('error')
+      $('#tweet-text').removeClass('error');
       
       isTooLong = false;
       isTooShort = false;
 
       //ajax post sends new tweet to backend
       $.ajax({
-       type: "POST",
-       url: "/tweets",
-       data: formData,
-      //  encode: true,
+        type: "POST",
+        url: "/tweets",
+        data: formData,
       })
-      .done((event) => {
+        .done(() => {
 
-        //after post is finsished a get request retu 
-        // $('.tweets-container').html('');
-        $.get('/tweets', function(theData, status) {
-          $('.tweets-container').prepend(createTweetElement(theData[theData.length - 1]));
-          $('#publish')[0].reset();
-          $('#counter').text(140);
+          //after post is finsished a get request returns all tweets and the last one is prepended to the tweet container
+          $.get('/tweets', function(theData) {
+            $('.tweets-container').prepend(createTweetElement(theData[theData.length - 1]));
+            $('#publish')[0].reset();
+            $('#counter').text(140);
 
-      })
-     })
-     .fail((err) => {
-       console.log('this is the error:', err);
-     })
+          });
+        })
+        .fail((err) => {
+          console.log('this is the error:', err);
+        });
     }
 
   });

@@ -54,9 +54,18 @@
 
     <!-- File to change dates JS -->
     <script src="scripts/timeago.js"></script>
+
+    <!-- Scroll feature JS -->
+    <script src="scripts/scroll.js"></script>
   </head>
 
+  
+  
   <body>
+
+    <!-- link location that bottom arrow sends you too -->
+    <a name="top"></a>
+
     <!-- Top nav bar (fixed) -->
     <nav id="navBar">
       <h1>Tweeter</h1>
@@ -65,13 +74,16 @@
       </div>
     </nav>
     <h1 id="small">Tweeter</h1>
+
+
+    <!-- Header responsive to size -->
     <header class="iconTop">
       <div>
-          <img src="/images/profile-hex.png"> 
+        <img src="/images/profile-hex.png"> 
       </div>
       <br>
       <div>
-          <h2>Amy Mansell</h2>
+        <h2>Amy Mansell</h2>
       </div>
     </header> 
     
@@ -79,18 +91,19 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <!-- <h2>Compose Tweet</h2> -->
+
+        <!-- form to compose new tweets -->
         <form id="publish" class="publish">
-          <!-- <label for="tweet-text">(optional)</label> -->
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div id="bottomOfNewTweet">
             <button id="tweetButton" class="tweet" type="submit">Tweet</button>
-              <p id="counter">140</p>
+            <p id="counter">140</p>
         </form>
       </section>
+
+      <!-- the section below is an element for jquery to select and add tweets from the database formatted nicely for the page -->
       <section class="tweets-container">
       </section>
     </main>
-    
   </body>
 </html>

@@ -45,6 +45,12 @@ main.container {
   display: none;
 }
 
+
+
+
+/* Below are styles for large/small screen. Due to the flow of the steps in compass I have put all of these styles in one place. If I had been doing this project my way I would put styles in a more organized fashion. Large screen size to small screen size or vice versa. I also would have put these styles in their more appropriate files but due to there being such a small subset of styles I thought it best to keep them together for simplicity and ease of conceptualizing what is happening in terms of responsive design. */
+
+
 @media (min-width: 1024px) {
   body {
     width: 100%;

@@ -1,7 +1,8 @@
-const arrow = $('.flex');
-let newTweetDisplay = $('.new-tweet')
+
+
+let newTweetDisplay = $('.new-tweet');
 $('document').ready(() => {
-  console.log($(window).width())
+  console.log($(window).width());
   if ($(window).width() <= 768) {
     $('.new-tweet').css('display', 'block');
   } else {
@@ -12,13 +13,13 @@ $('document').ready(() => {
         $('.new-tweet').css('display', 'none');
         hidden = true;
       } else {
-      $('.new-tweet').css('display', 'block')
-      if ($(window).width() >= '1024px') {
-        $('main.container').css('margin-top', '200px');
+        $('.new-tweet').css('display', 'block')
+        if ($(window).width() >= '1024px') {
+          $('main.container').css('margin-top', '200px');
+        }
+        hidden = false;
       }
-      hidden = false;
-    }
-    })
+    });
   }
   
-})
+});

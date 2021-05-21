@@ -7,7 +7,7 @@ $(document).ready(() => {
     console.log(counter);
 
     let char = text.next().children().last();
-    char.html(counter)
+    char.html(counter);
 
     if (counter < 0) {
       char.css('color', 'red');
@@ -20,15 +20,4 @@ $(document).ready(() => {
 
 
   });
-
-  $(window).on('scroll', function() {
-    $('body').append(`
-      <a href="" id="scrollToTop"><i class="fas fa-chevron-up"></i></a>
-    `)
-    this.off();
-  })
-
-  $('#scrollToTop i').on('click', function() {
-    console.log('working');
-  })
 });
