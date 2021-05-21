@@ -1,13 +1,17 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone. This project was a great opportunity to implement and learn jQuery and the power of AJAX requests. As well as improve my understanding and use of styling with CSS.
+Tweeter is a simple, single-page responsive Twitter clone. This project was a great opportunity to implement and learn jQuery and the power of AJAX requests. As well as improve my understanding and use of responsive styling with CSS.
 
 ## Screenshots
 
+### Full Desktop size
 !["Screenshot of Tweeter at desktop size"](https://raw.githubusercontent.com/mphbo/tweeter/master/docs/desktop.png)
 
+### Tablet size
 !["Screenshot of Tweeter at tablet size"](https://raw.githubusercontent.com/mphbo/tweeter/master/docs/tablet.png)
 
+
+### Mobile size
 !["Screenshot of Tweeter at mobile size"](https://raw.githubusercontent.com/mphbo/tweeter/master/docs/mobile.png)
 
 ## Getting Started
